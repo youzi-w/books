@@ -4,7 +4,7 @@
 
 - 下面代码可以判断用户使用哪个终端打开页面，然后实现跳转
 
-  ```
+  ```js
   if (navigator.userAgent.match(/(phone|pad|pod|wOSBrowser))){
   	window.location.href = ""; //手机
   } else {

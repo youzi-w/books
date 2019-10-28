@@ -1,11 +1,12 @@
 # DOM简介
+
 ## 1.1 什么是DOM
 
 文档对象模型( Document  Object  Model, 简称DOM),是W3C组织推荐的处理可扩展标记语言(HTML或者XML)的标准编程接口。
 
 - 说人话：W3C已经定义了一系列DOM接口，通过这些DOM接口可以改变网页的内容，结构和样式
 
-# 1.2 DOM树
+## 1.2 DOM树
 
  ![âDOMæ  å¾çâçå¾çæç´¢ç»æ](data:image/png;base64,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) 
 
@@ -13,112 +14,15 @@
 - 元素：页面中的所有标签都是元素，DOM中使用 element 表示
 - 节点：网页中的所有内容都是节点（标签，属性，文本，注释等），DOM中使用 node 表示
 
-#  2.获取元素
+## 1.3 DOM 可以做什么
 
-## 2.1获取元素的方法
+- 找对象（元素节点）Node
 
-- 根据 ID 获取
+- 设置元素的属性值 getAttribute  setAtrribute 
 
-  使用 getElementById() 方法可以获取带有 ID 的元素对象
+- 设置元素的样式 element.style   element.className
 
-```
-<body>
-    <div id = 'time'>2019-10-21</div>
-    <script>
-        // 1.因为页面文档从上往下加载，所以先得有标签，所以 script 写在标签下面
-        //2.get 获得 element 元素 by 通过 驼峰命名法
-        //3.参数 id 是大小写敏感的字符串
-        //4.返回的是一个元素对象
-        
-        var timer = document.getElementById('time');
-        console.log(timer);
-        console.log(typeof timer);
-        
-        //5. console.dir  打印我们返回的元素对象，更好的查看里面的属性和方法
-        console.dir(timer);
-    </script>
-</body>
+- 动态创建和删除元素
 
-```
-
-## getElementsByTagName 获取某类标签元素
-
-```
-<body>
-    <ul>
-        <li>知否知否，应是绿肥红瘦</li>
-        <li>知否知否，应是绿肥红瘦</li>
-        <li>知否知否，应是绿肥红瘦</li>
-        <li>知否知否，应是绿肥红瘦</li>
-        <li>知否知否，应是绿肥红瘦</li>
-    </ul>
-    <script>
-        //返回的是：获取过来的元素对象的集合，以伪数组的形式存储
-        var lis = document.getElementsByTagName('li');
-        console.log(lis);
-        console.log(lis[0]);
-        //2.遍历元素对象
-        for (var i = 0; i <= lis.length; i++) {
-            console.log(lis[i]);   
-        }
-        // 如果页面中只有一个li 返回的还是伪数组的形式
-        // 如果页面中没有这个元素，返回的空的伪数组的形式
-
-```
-
-## element.getElementsByTagName('标签名')；
-
-- 父元素必须是指定的单个元素
-
-```
-<ol id = ol>
-        <li>知否知否，应是绿肥红瘦</li>
-        <li>知否知否，应是绿肥红瘦</li>
-        <li>知否知否，应是绿肥红瘦</li>
-        <li>知否知否，应是绿肥红瘦</li>
-        <li>知否知否，应是绿肥红瘦</li>
- </ol>
- var ol = document.getElementsByTagName('ol');
- console.log(ol.getElementsByTagName('li'));
-   
-```
-
-## 通过 HTML5 新增的方法获取
-
-```
-<body>
-    <div class="box">盒子</div>
-    <div class="box">盒子</div>
-    <div id="nav">
-        <ul>
-            <li>首页</li>
-            <li>产品</li>
-        </ul>
-    </div>
-    <script>
-        // 1.document.getElementsByClassName() 根据类名获得某些元素集合
-        var boxs = document.getElementsByClassName('box');
-        console.log(boxs);
-        // 返回 [div.box, div.box]
-        
-        //2.querySelector 返回指定选择器的第一个元素对象，切记里面的选择器要加符号；
-        var firstBox = document.querySelector('.box');
-        console.log(firstBox); //返回 <div class = 'box'>盒子</div>
-        
-        var nav = document.querySelector('#nav');
-        console.log(nav);
-        
-        var li = document.querySelector('li');
-        console.log(li); //返回 <li>首页<li> 
-        
-        //3. querySelectorAll() 返回指定选择器的所有元素对象集合
-        var allBox = document.querySelectorAll('.box');
-        console.log(allBox);  //返回 [div.box, div.box]
-        
-        var lis = document.querySelectorAll('li');
-        console.log(lis);
-    </script>
-
-
-```
+- 事件的触发响应：事件源、事件、事件的驱动程序
 
