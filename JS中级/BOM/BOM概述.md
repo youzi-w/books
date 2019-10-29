@@ -20,3 +20,11 @@ window 对象是浏览器的顶级对象，具有双重角色
 
 **注意：**window 下的一个特殊属性：window.name
 
+目录：
+
+1. window
+2. history
+3. location
+4. 定时器 2种
+5. navigator
+6. eventloop

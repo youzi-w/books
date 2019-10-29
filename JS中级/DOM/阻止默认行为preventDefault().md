@@ -1,10 +1,10 @@
-# 阻止默认行为: preventDefault()
+# 阻止事件冒泡的方法之二：阻止默认行为: preventDefault()
 
 解析：阻止默认行为（事件） 如：让链接不跳转，或者让提交按钮不提交
 
 ## 常见事件对象的属性和方法
 
-```
+```js
         var div = document.querySelector('div');
         div.addEventListener('click', fn);
         div.addEventListener('mouseover', fn);
@@ -19,17 +19,17 @@
 
 2. 阻止默认行为（事件） 让链接不跳转 或者让提交按钮不提交
 
-   ```
+   ```js
            var a = document.querySelector('a');
            a.addEventListener('click', function(e) {
-                   e.preventDefault(); //  dom 标准写法
+                   e.preventDefault(); //  DOM 标准写法
                })
    
    ```
 
 3. 传统注册方法
 
-   ```
+   ```JS
    a.onclick = function(e) {
                // 普通浏览器 e.preventDefault();  方法
                // e.preventDefault();
