@@ -1,6 +1,6 @@
 # this 和 target 的区别
 
-```
+```js
 例子
     <div>123</div>
     <ul>
@@ -18,7 +18,7 @@
   - 区别 ： e.target 点击了那个元素，就返回那个元素
   -  this 那个元素绑定了这个点击事件，那么就返回谁
 
-```
+```js
 var div = document.querySelector('div');
 div.addEventListener('click', function(e) {
 	console.log(this);
@@ -28,7 +28,7 @@ div.addEventListener('click', function(e) {
 
 
 
-```
+```js
 var ul = document.querySelector('ul');
 ul.addEventListener('click', function(e) {
 	// 我们给ul 绑定了事件  那么this 就指向ul  
@@ -41,6 +41,7 @@ ul.addEventListener('click', function(e) {
 返回的是 
 <ul>
 <li><li>
-</ul>    因为事件冒泡，从下往上执行，所以 ul 也执行
+</ul>    
+//因为事件冒泡，从下往上执行，所以 ul 也执行
 ```
 

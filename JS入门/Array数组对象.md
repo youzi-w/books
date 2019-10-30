@@ -1,8 +1,8 @@
-# 检测是否为数组
+# 1.检测是否为数组
 
 instanceof 运算符
 
-```
+```js
 var arr = [0,1,2];
 console.log(arr instanceof Array);
 或者
@@ -11,11 +11,11 @@ console.log(Array.isArray(arr));
 
 ```
 
-# 添加 和 删除  数组元素的方法
+# 2.添加 和 删除  数组元素的方法
 
-## push-数组 结尾 添加元素
+## (1)push-数组末尾  添加元素
 
-```
+```js
     //arr.push(添加的元素)  在数组末尾，添加一个或多个数组元素
     
     var arr = [1,2,3];
@@ -27,13 +27,11 @@ console.log(Array.isArray(arr));
 	console.log(arr.push(4,'pink'));// push完毕之后，返回的结果是：		新数组的长度
 ```
 
-```
 
-```
 
-## unshift - 数组 开头 添加元素
+## (2)unshift - 数组开头  添加元素
 
-```
+```js
     //unshift 在数组开头，添加一个或多个数组元素
     
     var arr1 = [4,5,6];
@@ -50,16 +48,11 @@ console.log(Array.isArray(arr));
 	3. 元素组也会发生变化
 ```
 
-```
+# 3.删除数组的方法
 
+## (1)pop() 删除  最后一个元素
 
-```
-
-# 删除数组的方法
-
-## pop() 删除最后一个元素
-
-```
+```js
     // pop() 可以删除数组最后一个元素
     arr1 = (4,5,6)
     arr1.pop();
@@ -70,16 +63,23 @@ console.log(Array.isArray(arr));
 3. 元素组也会发生变化
 ```
 
-## shift 删除第一个元素
+## (2)shift 删除  第一个元素
 
-```
-//shift 删除数组第一个元素，一次只能删除一个元素
+shift 删除数组第一个元素，一次只能删除一个元素
 无参数，返回第一个元素的值
+
+```js
+    let  a =  [1,2,3];
+    let item = a.shift();  // 1
+    console.log(a); // [2,3]
 ```
 
-# 筛选数组案例
 
-```
+
+
+# 4.筛选数组案例
+
+```js
     //有一个包含工资的数组[1500, 1200, 2100, 1800]
     var arr = [1500, 1200, 2100, 1800];
     var newArray = [];
