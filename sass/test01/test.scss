@@ -1,0 +1,22 @@
+@charset "UTF-8";
+$main-color:red;
+$son-color:green;
+$example:16px;
+//这个内容不会出现
+/*这个内容会出现*/
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: $main-color;
+
+    .son {
+        background-color:$son-color;
+    }
+    div,p {
+        font-size: $example;
+        a {
+            font-weight: bold;
+        }
+    }
+}
+

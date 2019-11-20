@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/*这个内容会出现*/
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red; }
+  .box .son {
+    background-color: green; }
+  .box div, .box p {
+    font-size: 16px; }
+    .box div a, .box p a {
+      font-weight: bold; }
+
+/*# sourceMappingURL=test.css.map */
