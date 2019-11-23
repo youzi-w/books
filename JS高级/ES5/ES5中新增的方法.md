@@ -8,14 +8,22 @@
 
 ## 3.2 数组方法
 
-迭代（遍历）方法：forEach() , map() ,filter() ,some() ,every()
+迭代（遍历）方法：forEach() , map() ,filter() ,find(),some() ,every(),reduce()
 
-
+迭代器函数方法
 
 ### 3.2.1 forEach()
 
 ```js
 arr.forEach(callback[, thisArg]);
+```
+
+```js
+var colors = ["red","green","blue"];
+colors.forEach (function(color) {
+	cosole.log(color);
+})
+// 输出：red green blue
 ```
 
 
@@ -115,6 +123,16 @@ callback
 ```js
 arr.some(callback(element[, index[, array]])[, thisArg])
 ```
+
+
+
+map()
+
+```
+
+```
+
+
 
 
 

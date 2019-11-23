@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <div>123</div>
+    <script>
+        const double = function(number) {
+            return number * 2;
+        }
+        console.log(double(2));
+        
+        const double2  = (number) => {
+            return number * 2;
+        }
+        console.log(double2(2));
+        
+        const double3  = (number) => number * 2;        
+        console.log(double3(2));
+
+        // 只有一个形参
+        const double4  = number => number * 2;        
+        console.log(double4(2));
+
+        // 有两个以上形参，需要给形参加上括号
+        const double5 = (number1 , number2) => number1 + number2;
+        console.log(double5(2,2));
+
+        
+        
+    </script>
+</body>
+</html>
