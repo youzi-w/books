@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        对象结构没有顺序，只要在左边的对象中写了key值就会被提取到
+        左边的key 值必须跟提取对象的属性名一样
+        */ 
+        let {f1,f2} = {f1:'test1',f2:'test2'};
+        console.log(f2,f1);
+                
+
+        // 函数参数解构
+        var content = {
+            firstName : "you",
+            lastName : "zi"
+        }
+        function concat({firstName,lastName}) {
+            return `${firstName}${lastName}`;
+        }
+        console.log(concat(content));
+
+        // 参数名可以添加默认值
+        let {name1 = 'default1', name2:rename = 'default2'} = {name1:'red', name2:'green'};
+        console.log(name1,rename);
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Array.prototype.sayHello = function () {
+            console.log("Hello")
+        }
+        Array.prototype.str = 'world';
+        var myArray = [1, 2, 10, 30, 100];
+        myArray.name = '数组';
+
+        for (let index in myArray) {
+            console.log(index);
+        }
+        /*输出结果如下
+        0, 1, 2, 3, 4, name, sayHello, str*/
+
+    </script>
+</body>
+
+</html>

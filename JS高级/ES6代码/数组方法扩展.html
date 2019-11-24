@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        //Array.from
+        const todos = document.querySelectorAll('li');
+        // const names = todos.map(todo => todo.textContent);
+        // const todosArr = Array.from(todos);
+        // const names = todosArr.map(todo => todo.textContent);
+        const names = Array.from(todos, todo => todo.textContent);
+        console.log(names);
+
+        console.log("==========");
+        
+
+        //find()
+        const inventory = [
+            {name:'apples',quantity:2},
+            {name:'bananas',quantity:0},
+            {name:'cherries',quantity:5},
+        ];
+
+        const apples = inventory.find(fruit =>fruit.name ==='apples');
+        console.log(apples);
+        
+        //some()
+        const isEnough = inventory.some(fruit => {
+            console.log(fruit.name);
+
+            if(fruit.quantity > 0) {
+                //第一个apples 已经满足条件，后面的则不再遍历
+                return true;
+            }
+            return false;
+            
+        });
+        console.log(isEnough);
+        
+        //every() 只有全部的元素都符合条件才返回true ，否则返回 false
+        const isAllEnough = inventory.every(fruit => fruit.quantity > 0);
+        console.log(isAllEnough);
+        
+
+
+    </script>
+</body>
+</html>

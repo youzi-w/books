@@ -32,6 +32,22 @@
         console.log(double5(2,2));
 
         
+         
+        // 箭头函数的this指向
+        const Youzi = {
+            name :"youzi",
+            hobbies: ["coding","sleeping","gaming"],
+            
+            printHobbies: function() {
+
+                this.hobbies.map(hobby => {
+                    // 继承父作用域中的this值
+                    console.log(`${this.name} loves ${hobby}`);
+                    
+                })
+            }
+        }
+        Youzi.printHobbies();
         
     </script>
 </body>
