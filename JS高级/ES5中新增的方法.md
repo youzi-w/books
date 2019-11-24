@@ -1,18 +1,18 @@
-# 3.ES5中新增方法
+# ES5中新增方法
 
-## 3.1 新增方法概述
+## 新增方法概述
 
 - 数组方法
 - 字符串方法
 - 对象方法
 
-## 3.2 数组方法
+## 数组方法
 
 迭代（遍历）方法：forEach() , map() ,filter() ,find(),some() ,every(),reduce()
 
 迭代器函数方法
 
-### 3.2.1 forEach()
+###  forEach() 遍历数组
 
 ```js
 arr.forEach(callback[, thisArg]);
@@ -28,8 +28,15 @@ colors.forEach (function(color) {
 
 
 
-
 callback
+
+```js
+[].map(function(value, index, array) {
+    return ...;
+});
+```
+
+
 
 为数组中每个元素执行的函数，该函数接收三个参数：
 
@@ -69,19 +76,19 @@ callback
 
 
 
-### 3.2.2filter() :筛选数组
+### filter() :筛选数组
 
 
 
 ```js
-var newArray = arr.filter(callback(element[, index[, array]])[, thisArg])
+var newArray = arr.filter(callback(element,[index],[array])[, thisArg])
 ```
 
 参数
 
 callback
 
-用来测试数组的每个元素的函数。返回 `true` 表示该元素通过测试，保留该元素，`false` 则不保留。它接受以下三个参数：
+返回 `true` 表示该元素通过测试，添加到新数组中去；`false` 则不保留。它接受以下三个参数： 
 
 - `element`
 
@@ -118,21 +125,31 @@ callback
 
 
 
-### 3.2.3some()
+### some()和every()
+
+场景：这个一般就用在，判断数组的每个元素是否符合`function`条件。 
 
 ```js
 arr.some(callback(element[, index[, array]])[, thisArg])
 ```
 
+- 参数
 
+1. callback()函数
 
-map()
+2. thisArg:指定this 的指向的数组
 
-```
+#### every()
 
-```
+- **every()是对数组中每一项运行给定函数，如果该函数对每一项返回true,则返回true。**（全为真时，才会返回 true;）
 
+  只要循环的值有一个为假，则立即退出遍历。
 
+#### some()
+
+-  **some()是对数组中每一项运行给定函数，如果该函数对任一项返回true，则返回true** （有真则真）
+
+  找到真则立刻退出循环遍历
 
 
 
@@ -183,6 +200,85 @@ callback
 ```
 
 
+
+### map() 映像数组
+
+- map,映射之意 ，原数组被“映射”成对应新数组 
+
+```js
+var data = [1, 2, 3, 4];
+var arrayOfSquares = data.map(function (item) {
+  return item * item;
+});
+console.log(arrayOfSqures); // 1, 4, 9, 16
+```
+
+ map的callback函数需要有return值，如果没有，就会返回undefined: 
+
+```js
+var data = [1, 2, 3, 4];
+var arrayOfSquares = data.map(function() {});
+arrayOfSquares.forEach(console.log);
+// 输出 undefined
+```
+
+- 利用map方法方便获得对象数组中的特定属性值们 
+
+```js
+var users = [
+  {name: "张含韵", "email": "zhang@email.com"},
+  {name: "江一燕",   "email": "jiang@email.com"},
+  {name: "李小璐",  "email": "li@email.com"}
+];
+var emails = users.map(function (user) { 
+    return user.email; 
+});
+console.log(emails.join(", ")); // 输出：zhang@email.com, jiang@email.com, li@email.com
+```
+
+### find()
+
+```js
+array.find(function(currentValue, index, arr),thisValue)
+```
+
+ find() 方法返回通过测试（函数内判断）的数组的第一个元素的值。 
+
+- 当数组中的元素在测试条件时返回 *true* 时, find() 返回符合条件的元素，之后的值不会再调用执行函数。
+- 如果没有符合条件的元素返回 undefined
+
+```js
+var array2 = [
+    { postId: 4, content: "Vue" },
+    { postId: 2, content: "Node" },
+    { postId: 4, content: "Node" }
+];
+var user = [];
+     user = array2.find(function (e) {
+         return e.postId = 4;
+     })
+console.log(user);
+//仅返回第一个对象{ postId: 4, content: "Vue" }
+```
+
+### reduce()
+
+可以实现forEach() 等方法的功能
+
+```css
+arr.reduce(callback,[initialValue])
+```
+
+```
+callback （执行数组中每个值的函数，包含四个参数）
+
+    1、previousValue （上一次调用回调返回的值，或者是提供的初始值（initialValue））
+    2、currentValue （数组中当前被处理的元素）
+    3、index （当前元素在数组中的索引）可选
+    4、array （调用 reduce 的数组）可选
+
+initialValue （作为第一次调用 callback 的第一个参数。）
+```
 
 
 

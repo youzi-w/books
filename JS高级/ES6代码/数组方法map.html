@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var numbers = [1,2,3];
+        var doubledNumbers = [];
+        for (i = 0; i < numbers.length; i++) {
+            doubledNumbers.push(numbers[i] * 2);
+        }
+        console.log(doubledNumbers);
+
+        for (i = 0; i < doubledNumbers.length; i++) {
+            console.log(doubledNumbers[i]);
+            
+        }
+
+        var double = numbers.map(function(number) {
+            number = number * 2;
+            return number;
+        })
+        console.log(double);
+        
+        
+    </script>
+</body>
+</html>

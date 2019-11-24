@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var products = [
+            { name: "apple", type: "fruit" },
+            { name: "pear", type: "fruit" },
+            { name: "cucumber", type: "vegetables" },
+            { name: "tomato", type: "vegetables" }
+        ]
+        var filteredProducts = [];
+        //旧方法
+        // for(i = 0; i < products.length; i++) {
+        //     if(products[i].type === "vegetables") {
+        //         filteredProducts.push(products[i]);
+        //     }
+        // }
+        // console.log(filteredProducts);
+
+        // filter()方法
+        var table = products.filter(function (product) {
+            return product.type === "vegetables";
+        })
+        console.log(table);
+
+        //假定两个数组A和B，根据 A 中的id值，过滤掉B中的不符合的数据
+        var array1 = { id: 4, title: "JS" };
+        var array2 = [
+            { postId: 4, content: "Vue" },
+            { postId: 2, content: "Node" },
+            { postId: 4, content: "Node" }
+        ];
+
+        // function commentsForPost(array1,array2) {
+        //     return array2.filter(function(e) {
+        //         return e.postId === this.id;
+        //     },array1)
+        // }
+        // console.log(commentsForPost(array1,array2));
+
+        var user = [];
+        user = array2.find(function (e) {
+            return e.postId = 4;
+        })
+        console.log(user);
+        
+    </script>
+</body>
+
+</html>
