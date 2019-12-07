@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/jquery-3.3.1.js"></script>
+</head>
+<body>
+<input type="file" name="file" id="file">
+<input type="submit" value="提交" id="jqueryfile">
+
+<script>
+    //公共链接部分
+    var baseUrl = "https://api2.bmob.cn/2"
+    //公共的请求头
+    var headers = {
+        "X-Bmob-Application-Id": "270427ada317d6de8f3d8e34f33572bf",
+        "X-Bmob-REST-API-Key": "1219a1d826eee7ffec759dc32dd15cf2"
+    }
+    $(function () {
+        $('#jqueryfile').click(function () {
+            //拿到文件
+            var f = $('#file')[0].files[0];
+            //拿到文件名
+            var fileName = f.name
+            //创建formdata对象用来存取二进制文件
+            var file_obj = new FormData();
+            file_obj.append('file', f);
+            $.ajax({
+                type: 'post',
+                url: baseUrl + '/files/' + fileName,
+                headers: headers,
+                data: file_obj,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>

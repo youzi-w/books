@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1;
+        }
+
+        footer{
+            display: flex;
+            height: 50px;
+            background-color: #eee;
+            justify-content: center;
+        }
+
+        footer section{
+            display: flex;
+            flex: 1 0;
+            border-right: solid 1px #ccc;
+            border-top: solid 1px #ccc;
+            flex-direction: column-reverse;
+        }
+
+        footer section:last-child {
+            border-right: none;
+        }
+
+        footer section h4 {
+            flex: 0 0 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        footer section ul {
+            border: solid 1px black;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 4px;
+            text-align: center;
+        }
+        footer section ul li {
+            flex: 1 0 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: solid 1px black;
+        }
+
+        footer section ul:last-child {
+            border-bottom: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <main></main>
+    <footer>
+        <section>
+            <h4>在线咨询</h4>
+            <ul>
+                <li>PHP</li>
+                <li>CSS</li>
+            </ul>
+        </section>
+        <section>
+            <h4>直播课堂</h4>
+        </section>
+        <section>
+            <h4>视频教程</h4>
+        </section>
+    </footer>
+</body>
+</html>

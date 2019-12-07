@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+
+        }
+
+        body {
+            display: flex;
+            background-color: yellow;
+        }
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .heading {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            font-family: sans-serif;
+            font-size: 50px;
+            color: white;
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+            text-align: center;
+
+        }
+
+        .heading span {
+            cursor: pointer;
+            display: inline-flex;
+            transition: transform 0.25s;
+        }
+
+        .heading span:hover {
+            transform: translateY(-20px) rotate(10deg) scale(2);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2 class="heading">YOUZIWEN</h2>
+    </div>
+
+    <script>
+        //利用扩展运算符，将每个字母用span标签包裹起来，并加上动画效果
+        //获取h2元素
+        const heading = document.querySelector('.heading');
+        //把h2元素里面的文字替换为
+        // console.log(heading.textContent);
+        
+        heading.innerHTML = wrapWithSpan(heading.textContent);
+        function wrapWithSpan(word) {
+            //用扩展运算符把YOUZIWEN的每个字母用span表亲啊包裹，并且去掉innerHTML里面的逗号
+            return [...word].map(letter => `<span>${letter}</span>`).join('')
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        function success(text) {
+            var textarea = document.getElementById('test-ie-response-text');
+            textarea.value = text;
+        }
+        function fail(code) {
+            var textarea = document.getElementById('test-ie-response-text');
+            textarea.value = 'Error code:' + code;
+        }
+        //现代浏览器则使用第一个语句来创建，ie6 以下使用第二条语句来创建
+        var request;
+        if (widow.XMLHttpRequest) {
+            request = new XMLHttpRequest();
+        } else {
+            request = new ActiveXObject('Microsoft.XMLHTTP');
+        }
+
+        request.onreadystatechange = function () { // 状态发生变化时，函数被回调
+            if (request.readystate === 4) {
+                // 判断响应结果:
+                if (request.status === 200) {
+                    // 成功，通过responseText拿到响应的文本:
+                    return success(request.responseText);
+                } else {
+                    // 失败，根据响应码判断失败原因:
+                    return fail(request.status);
+                }
+            } else {
+
+            }
+        }
+
+        //发送请求：
+        request.open('GET','/api/categories');
+        request.send();
+
+        alert('请求已发送，请等待响应...');
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+
+        // 1.扩展字符串
+        let Laravist;
+        let stringLaravist = [...'Lavarist'];
+        console.log(stringLaravist);
+
+        // 2.把youngers 和 olders 还有新成员 Mary一起合并
+        let newMember = 'Mary';
+        const youngers = ['Geoge', 'Jonh', 'Thomas'];
+        const olders = ['James', 'Adrew', 'Martin'];
+
+        let members = [...youngers,newMember,...olders];
+        console.log(members);
+
+        // 3.复制数组，将元素全部遍历到新数组中去，不会改变原数组的值
+
+        const currentMembers = [...members];
+        console.log(currentMembers);
+        
+
+    </script>
+</body>
+
+</html>

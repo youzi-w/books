@@ -41,6 +41,8 @@ sass -v
 
 ## 编译scss 文件
 
+**注意：sass 编译成 css 时显示乱码，需要在 scss文件中加入：@charset "UTF-8"**
+
 1. 在指定文件夹中新建一个后缀名为 .scss 的文件，例如：test.scss
 
    - 如果可以，请同时创建一个 index.html 文件，方便后面监视 scss文件
@@ -68,10 +70,11 @@ sass -v
 
    ```
    sass test.scss test.css
-   ```
-
-   你会发现原本文件夹中多了一个 test.css文件，打开后会发现，原来test.scss 中的文件被编译成css格式了
-
+   //敲回车
+```
+   
+你会发现原本文件夹中多了一个 test.css文件，打开后会发现，原来test.scss 中的文件被编译成css格式了
+   
    ```css
    div {
        background-color:red;

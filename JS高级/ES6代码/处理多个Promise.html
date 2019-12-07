@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const userPromise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // resolve(['mojombo', 'vanpelt', 'wycats']);
+                reject([('No users.')]);
+            }, 2000);
+        })
+
+        const moviePromise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve({
+                    name: '摔跤吧！爸爸',
+                    rating: 9.2,
+                    year:2016
+                });
+                // reject(['No movies']);
+            }, 500);
+        });
+        //Promise.all([]) 只有当处理的Promise结果全为 resolve 时，才会执行.then()方法
+        //否则执行 catch()方法
+        // Promise.all([userPromise, moviePromise])
+        // .then(response => {
+        //     console.log(response);
+        //     //使用对象解构方法
+        //     const [users, movies] = response;
+        //     console.log(users);
+        //     console.log(movies);                
+        // })
+        // .catch(err => {
+        //     console.error(err);    
+        // })
+
+        //.race() 第一个返回的是resolve,执行then()
+        //第一个返回 reject(),执行 catch()
+        Promise
+        .race([userPromise,moviePromise])
+        .then(responses => {
+            console.log(responses);    
+        })
+        .catch(err => {
+            console.error(err);
+            
+        })
+    </script>
+</body>
+</html>

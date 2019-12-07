@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+</head>
+<body>
+<input type="file" id="upload">
+<script src="../lib/jquery-3.3.1.js"></script>
+<script>
+    //公共链接部分
+    var baseUrl = "https://api2.bmob.cn/2/files/"
+    //公共的请求头
+    var headers = {
+        "X-Bmob-Application-Id":"270427ada317d6de8f3d8e34f33572bf",
+        "X-Bmob-REST-API-Key":"1219a1d826eee7ffec759dc32dd15cf2",
+        "Content-Type":"application/x-png"
+    }
+    window.onload = function () {
+        $('#upload').change(function () {
+            //获取文件
+            var file = this.files[0]
+            //获取文件名
+            var fileName = file.name
+            $.ajax({
+                url:baseUrl+ fileName,
+                type: 'post',
+                headers:headers,
+                processData: false,
+                contentType: false,
+                cache: false,
+                data: file,
+                success: function (data) {
+                    console.log(data);
+                }
+            })
+        });
+    }
+
+</script>
+</body>
+</html>

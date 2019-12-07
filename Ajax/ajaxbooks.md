@@ -38,7 +38,7 @@
 - 使用`XMLHttpRequest`来和服务器进行异步通信。
 - 使用`javascript`来绑定和调用。
 
-##  XmlHttpRequest 的属性和方法
+##  XmlHttpRequest 对象的属性和方法
 
 ### 属性
 
@@ -53,22 +53,22 @@ XMLHttpRequest对象的常见属性如下：
 | status             | 将状态返回为数字（例如，“Not Found”为404，“OK”为200）        |
 | statusText         | 以字符串形式返回状态（例如，“Not Found”或“OK”）              |
 
-![属性](H:\Books\Ajax\img\XmlHttpRequest的属性.png)
+
 
 ### 方法
 
 XMLHttpRequest对象的重要方法如下：
 
-| 方法                                                | 描述                                |
-| :-------------------------------------------------- | :---------------------------------- |
-| abort()                                             | 取消当前请求。                      |
-| getAllResponseHeaders()                             | 以字符串形式返回完整的HTTP标头集。  |
-| getResponseHeader( headerName )                     | 返回指定HTTP标头的值。              |
-| void open（method，URL）                            | 打开指定获取或交的方法和URL的请求。 |
-| void open（method，URL，async）                     | 与上面相同，但指定异步或不。        |
-| void open（method，URL，async，userName，password） | 与上面相同，但指定用户名和密码。    |
-| void send（content）                                | 发送获取请求。                      |
-| setRequestHeader（ label，value）                   | 将标签/值对添加到要发送的HTTP标头。 |
+| 方法                                           | 描述                                                         |
+| :--------------------------------------------- | :----------------------------------------------------------- |
+| abort()                                        | 取消当前请求。                                               |
+| getAllResponseHeaders()                        | 以字符串形式返回完整的HTTP标头集。                           |
+| getResponseHeader( headerName )                | 返回指定HTTP标头的值。                                       |
+| open（method，URL）                            | 打开指定获取数据的方法和URL的请求。                          |
+| open（method，URL，async）                     | 与上面相同，但指定异步或不。                                 |
+| open（method，URL，async，userName，password） | 与上面相同，但指定用户名和密码。                             |
+| send（content）                                | 发送请求。 **如果是get方式，并不需要填写参数，或填写null** ；**如果是post方式，把要提交的参数写上去** |
+| setRequestHeader（ label，value）              | 将标签/值对添加到要发送的HTTP的header中。使用post方法才会调用该方法 |
 
 ## Ajax的工作流程
 
@@ -84,7 +84,7 @@ XMLHttpRequest对象的重要方法如下：
 
 　　5.获取响应并更新界面
 
-![1](H:\Books\Ajax\img\ajax工作原理.png)
+
 
 例子：
 
@@ -271,3 +271,50 @@ xmlhttp.readyState==4 && xmlhttp.status==200
 
 - responseText：获得字符串形式的响应数据。
 - responseXML：获得 XML 形式的响应数据。
+
+
+
+# 写出实现一个Ajax请求的代码
+
+```js
+        'use strict';
+
+        function success(text) {
+            var textarea = document.getElementById('test-ie-response-text');
+            textarea.value = text;
+        }
+        function fail(code) {
+            var textarea = document.getElementById('test-ie-response-text');
+            textarea.value = 'Error code:' + code;
+        }
+        //现代浏览器则使用第一个语句来创建，ie6 以下使用第二条语句来创建
+        var request;
+        if (widow.XMLHttpRequest) {
+            request = new XMLHttpRequest();
+        } else {
+            request = new ActiveXObject('Microsoft.XMLHTTP');
+        }
+
+        request.onreadystatechange = function () { // 状态发生变化时，函数被回调
+            if (request.readystate === 4) {
+                // 判断响应结果:
+                if (request.status === 200) {
+                    // 成功，通过responseText拿到响应的文本:
+                    return success(request.responseText);
+                } else {
+                    // 失败，根据响应码判断失败原因:
+                    return fail(request.status);
+                }
+            } else {
+
+            }
+        }
+
+        //发送请求：
+        request.open('GET','/api/categories');
+        request.send();
+
+        alert('请求已发送，请等待响应...');
+
+```
+

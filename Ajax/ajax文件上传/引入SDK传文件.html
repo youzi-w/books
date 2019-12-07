@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--多文件同步上传-->
+<input type="file" id="profilePhotoFileUpload"  multiple="multiple" >
+<script src="../lib/hydrogen-js-sdk-master/dist/Bmob-2.2.1.min.js"></script>
+<script>
+    // 初始化
+    Bmob.initialize("c1bcabb7432007be", "weihao");
+    const fileUploadControl = document.getElementById('profilePhotoFileUpload');
+    fileUploadControl.onchange = () => {
+        const pic = fileUploadControl.files
+        console.log(pic);
+        let file
+        for(let item of pic){
+            file = Bmob.File(item.name, item);
+        }
+        file.save().then(res => {
+            console.log(res.length);
+            console.log(res);
+        })
+    }
+</script>
+</body>
+</html>

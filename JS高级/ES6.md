@@ -141,9 +141,94 @@ this 需要绑定事件的时候
 
 ### 剩余参数
 
+(...restArray)
+
+```js
+//只有一种参数
+function sum(...numbers) {
+    return numbers.reduce((pre, cur) => pre + cur, 0)
+}
+console.log(sum(1, 2, 3, 4));
+console.log(sum(1, 2, 3, 4, 5))
+
+//有两种参数
+function converCurrency(rate, ...amounts) {
+    return amounts.map(amount => amount * rate);
+}
+const amounts = converCurrency(0.8, 12, 34, 666);
+console.log(amounts)
+const player = ['youzi', 123, 5.4, 6.7, 7.8, 8.9]
+const [name, id, ...scores] = player;
+console.log(name, id, scores);
+```
+
+
+
 ### 扩展运算符
 
+#### 数组中的运用
 
+1. 扩展字符串为数组
+
+2. 合并数组
+
+3. 复制数组
+
+```js
+//1. 扩展字符串
+let Laravist;
+let stringLaravist = [...'Lavarist'];
+console.log(stringLaravist)
+
+// 2.把youngers 和 olders 还有新成员 Mary一起合并
+let newMember = 'Mary';
+const youngers = ['Geoge', 'Jonh', 'Thomas'];
+const olders = ['James', 'Adrew', 'Martin']
+let members = [...youngers,newMember,...olders];
+console.log(members)
+
+// 3.复制数组，将元素全部遍历到新数组中去，不会改变原数组的
+const currentMembers = [...members];
+console.log(currentMembers);
+
+```
+
+### 对象字面量的扩展
+
+```js
+    const name = 'Youzi';
+    const age = 2;
+    const birthday = '2000-01-01';
+    const Youzi = {
+        /* 旧写法
+         name :'Youzi',
+         age : 2,
+         birthday:'2000-01-01',*/
+        //属性新写法，只写key，不用写 value
+        name,
+        age,
+        birthday,
+        //方法新写法：省略 function
+        greet() {
+            alert(`Hello ${this.name}`)
+        },
+        getAge() {
+            alert(this.age)
+        }
+    }
+    Youzi.greet();
+    Youzi.getAge();
+    console.log('============');
+    const keys = ['name','age', 'birthday'];
+    const values = ['Xinxin','20','2000-01-02'];
+    const Xinxin = {
+        [keys.shift()]:values.shift(),
+        [keys.shift()]:values.shift(),
+        [keys.shift()]:values.shift(),
+    }
+    console.log(Xinxin);
+
+```
 
 
 
@@ -330,6 +415,67 @@ arr：被查找的数组。
 - for of: 对键值 `value` 的遍历 
 
    for of遍历的是数组元素值 ,还不能用来遍历对象
+
+
+
+## Promise
+
+- 解析： `promise`是一个对象，它代表了一个异步操作的最终完成或者失败。 
+
+常用的 promise库：[axios](http://www.axios-js.com/zh-cn/docs/)
+
+```js
+var p = new Promise(function(resolve, reject){
+    //
+})
+resolve:异步操作执行成功后的回调函数
+reject:异步操作执行失败后的回调函数
+```
+
+
+
+处理单个Promise
+
+```js
+p.then(data => console.log(data))
+ .catch(err => console.error(err));
+```
+
+
+
+处理多个Promise
+
+```js
+var p = Promise.all([p1,p2,p3])
+```
+
+-  只有p1、p2、p3的状态都变成fulfilled，p的状态才会变成fulfilled，此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。 
+-  只要p1、p2、p3之中有一个被rejected，p的状态就变成rejected，此时第一个被reject的实例的返回值，会传递给p的回调函数。 
+
+```js
+var p = Promise.race([p1,p2,p3])
+```
+
+- 上面代码中，只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变(可以理解为：哪一个实例第一个返回，则p就执行那一个实例的状态)。
+- 那个率先改变的 Promise 实例的返回值，就传递给p的回调函数。 
+
+
+
+## Symbol
+
+第七种数据类型，生成唯一的标识符
+
+```
+Symbol('key'):{}
+```
+
+用Symbol 生成的属性不能被遍历，而且要使用
+
+
+
+## Module
+
+
 
 
 

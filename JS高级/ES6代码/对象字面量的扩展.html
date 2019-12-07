@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const name = 'Youzi';
+        const age = 2;
+        const birthday = '2000-01-01';
+
+        const Youzi = {
+            /* 旧写法
+             name :'Youzi',
+             age : 2,
+             birthday:'2000-01-01',*/
+
+            //属性新写法，只写key，不用写 value
+            name,
+            age,
+            birthday,
+
+            //方法新写法：省略 function
+            greet() {
+                alert(`Hello ${this.name}`)
+            },
+
+            getAge() {
+                alert(this.age)
+            }
+        }
+
+        Youzi.greet();
+        Youzi.getAge();
+        console.log('============');
+
+        const keys = ['name','age', 'birthday'];
+        const values = ['Xinxin','20','2000-01-02'];
+
+        const Xinxin = {
+            [keys.shift()]:values.shift(),
+            [keys.shift()]:values.shift(),
+            [keys.shift()]:values.shift(),
+        }
+        console.log(Xinxin);
+        
+        
+
+    </script>
+</body>
+</html>
